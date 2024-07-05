@@ -1,15 +1,20 @@
 const { Sequelize } = require("sequelize");
 
+const sequelizeOptions = {
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_CONNECTION,
+    logging: false,
+};
+
+if (process.env.DB_CONNECTION === "postgres") {
+    sequelizeOptions.dialectModule = require("pg");
+}
+
 const sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USERNAME,
     process.env.DB_PASSWORD,
-    {
-        host: process.env.DB_HOST,
-        dialect: process.env.DB_CONNECTION,
-        dialectModule: require("pg"),
-        logging: false,
-    },
+    sequelizeOptions,
 );
 
 const Product = require("./Product");
