@@ -2,10 +2,13 @@ const { Type } = require("../models");
 
 const TypeController = {
     showList: async (req, res) => {
-        const limit = req.query.limit ? Number(req.query.limit) : 10;
-        const offset = req.query.page ? (Number(req.query.page) - 1) * limit : 0;
-        const types = await Type.findAll({ offset: offset, limit: limit });
-        return res.json({ types: types });
+        try {
+            const types = await Type.findAll();
+            return res.json({ types });
+        } catch (err) {
+            console.error(err);
+            return res.send({ msg: "Failed to show types" });
+        }
     },
 };
 

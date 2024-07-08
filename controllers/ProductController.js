@@ -1,5 +1,5 @@
 const { Product } = require("../models");
-const { IncomingForm } = require("formidable");
+const formidable = require("formidable");
 
 const ProductController = {
     showList: async (req, res) => {
@@ -24,24 +24,24 @@ const ProductController = {
     },
     store: async (req, res) => {
         try {
-            const form = new IncomingForm({
+            const form = formidable({
+                multiples: true,
                 keepExtensions: true,
                 uploadDir: __dirname + "/../public/images/products",
             });
 
             form.parse(req, async (err, fields, files) => {
-                const { name, description, type, stock, price, trending, slug } = fields;
+                console.log("hola");
+                const { name, description, typeId, stock, price } = fields;
                 console.log(files);
                 const image = files.avatar.newFileName;
                 await Product.create({
                     name,
                     description,
                     image,
-                    typeId: type,
+                    typeId,
                     stock,
                     price,
-                    trending,
-                    slug,
                 });
                 return res.send({ msg: "Product successfully created" });
             });
