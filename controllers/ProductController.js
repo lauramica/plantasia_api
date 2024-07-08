@@ -25,16 +25,14 @@ const ProductController = {
     store: async (req, res) => {
         try {
             const form = formidable({
-                multiples: true,
                 keepExtensions: true,
                 uploadDir: __dirname + "/../public/images/products",
             });
 
             form.parse(req, async (err, fields, files) => {
-                console.log("hola");
-                const { name, description, typeId, stock, price } = fields;
                 console.log(files);
-                const image = files.avatar.newFileName;
+                const { name, description, typeId, stock, price, slug } = fields;
+                const image = files.image.newFilename;
                 await Product.create({
                     name,
                     description,
@@ -42,6 +40,7 @@ const ProductController = {
                     typeId,
                     stock,
                     price,
+                    slug,
                 });
                 return res.send({ msg: "Product successfully created" });
             });
@@ -52,21 +51,20 @@ const ProductController = {
     },
     update: async (req, res) => {
         try {
-            const form = new IncomingForm({
+            const form = formidable({
                 keepExtensions: true,
                 uploadDir: __dirname + "/../public/images/products",
             });
 
             form.parse(req, async (err, fields, files) => {
-                const { name, description, type, stock, price, trending, slug } = fields;
-                console.log(files);
-                const image = files.avatar.newFileName;
+                const { name, description, typeId, stock, price, trending, slug } = fields;
+                const image = files.image.newFilename;
                 await Product.update(
                     {
                         name,
                         description,
                         image,
-                        typeId: type,
+                        typeId,
                         stock,
                         price,
                         trending,
