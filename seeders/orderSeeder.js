@@ -28,7 +28,7 @@ async function orderSeeder() {
         });
     }
 
-    await Order.bulkCreate(types);
+    await Order.bulkCreate(orders);
     console.log("[Database] Type seeder executed succesfully");
 }
 
