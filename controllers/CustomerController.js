@@ -16,9 +16,24 @@ const CustomerController = {
         });
     },
     create: async (req, res) => {
-        const customer = {
-            firstname,
-        };
+        await Customer.create({
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            password: req.body.password,
+        });
+        return res.json({ message: "Customer successfully created" });
+    },
+
+    update: async (req, res) => {
+        const customer = await Customer.findByPk(req.params.id);
+        await customer.update({
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            address: req.body.address,
+            phone: req.body.phone,
+        });
+        return res.json({ message: "Usuario editado" });
     },
 };
 
