@@ -7,6 +7,11 @@ const CustomerController = {
         const customers = await Customer.findAll({ offset: offset, limit: limit });
         return res.json({ customers: customers });
     },
+    show: async (req, res) => {
+        return res.json({
+            user: Customer.findByPk(req.params.id, { attributes: { exclude: ["password"] } }),
+        });
+    },
 };
 
 module.exports = CustomerController;

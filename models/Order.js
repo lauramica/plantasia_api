@@ -30,7 +30,7 @@ class Order extends Model {
                     defaultValue: "pending",
                 },
                 products: {
-                    type: DataTypes.ARRAY(DataTypes.JSON),
+                    type: DataTypes.JSON,
                     allowNull: false,
                 },
                 buyer: {

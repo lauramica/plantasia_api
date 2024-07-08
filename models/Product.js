@@ -15,7 +15,7 @@ class Product extends Model {
                     allowNull: false,
                 },
                 description: {
-                    type: DataTypes.TEXT(1000),
+                    type: DataTypes.TEXT,
                     allowNull: false,
                 },
                 image: {
