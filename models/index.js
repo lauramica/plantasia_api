@@ -17,11 +17,21 @@ const sequelize = new Sequelize(
     sequelizeOptions,
 );
 
+const Type = require("./Type");
+const Category = require("./Category");
 const Product = require("./Product");
+const Admin = require("./Admin");
+const Customer = require("./Customer");
+const Order = require("./Order");
 
 Product.initModel(sequelize);
 
 module.exports = {
     sequelize,
+    Type,
+    Category,
     Product,
+    Admin,
+    Customer,
+    Order,
 };
