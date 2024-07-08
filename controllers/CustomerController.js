@@ -8,9 +8,17 @@ const CustomerController = {
         return res.json({ customers: customers });
     },
     show: async (req, res) => {
-        return res.json({
-            user: Customer.findByPk(req.params.id, { attributes: { exclude: ["password"] } }),
+        const customer = await Customer.findByPk(req.params.id, {
+            attributes: { exclude: ["password"] },
         });
+        return res.json({
+            user: customer,
+        });
+    },
+    create: async (req, res) => {
+        const customer = {
+            firstname,
+        };
     },
 };
 
