@@ -18,18 +18,25 @@ const sequelize = new Sequelize(
 );
 
 const Type = require("./Type");
-const Category = require("./Category");
 const Product = require("./Product");
 const Admin = require("./Admin");
 const Customer = require("./Customer");
 const Order = require("./Order");
 
+Type.initModel(sequelize);
 Product.initModel(sequelize);
+Admin.initModel(sequelize);
+Customer.initModel(sequelize);
+Order.initModel(sequelize);
+
+Type.hasMany(Product);
+Product.belongsTo(Type);
+Order.belongsTo(Customer);
+Customer.hasMany(Order);
 
 module.exports = {
     sequelize,
     Type,
-    Category,
     Product,
     Admin,
     Customer,
