@@ -8,32 +8,47 @@ const CustomerController = {
         return res.json({ customers: customers });
     },
     show: async (req, res) => {
-        const customer = await Customer.findByPk(req.params.id, {
-            attributes: { exclude: ["password"] },
-        });
-        return res.json({
-            user: customer,
-        });
+        try {
+            const customer = await Customer.findByPk(req.params.id, {
+                attributes: { exclude: ["password"] },
+            });
+            return res.json({
+                user: customer,
+            });
+        } catch (err) {
+            console.log(err);
+            return res.json({ error: "There was an error finding the customer" });
+        }
     },
     create: async (req, res) => {
-        await Customer.create({
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            email: req.body.email,
-            password: req.body.password,
-        });
-        return res.json({ message: "Customer successfully created" });
+        try {
+            await Customer.create({
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                password: req.body.password,
+            });
+            return res.json({ message: "Customer successfully created" });
+        } catch (err) {
+            console.log(err);
+            return res.json({ error: "There was an error creating the customer" });
+        }
     },
 
     update: async (req, res) => {
-        const customer = await Customer.findByPk(req.params.id);
-        await customer.update({
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            address: req.body.address,
-            phone: req.body.phone,
-        });
-        return res.json({ message: "Customer updated" });
+        try {
+            const customer = await Customer.findByPk(req.params.id);
+            await customer.update({
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                address: req.body.address,
+                phone: req.body.phone,
+            });
+            return res.json({ message: "Customer successfully updated" });
+        } catch (err) {
+            console.log(err);
+            return res.json({ error: "There was an error updating the customer" });
+        }
     },
     destroy: async (req, res) => {
         try {
