@@ -22,26 +22,14 @@ const OrderController = {
     },
     store: async (req, res) => {
         try {
-            const form = formidable({
-                keepExtensions: true,
-                uploadDir: __dirname + "/../public/images/products",
+            const { total_price, order_adress, products, buyer } = req.body;
+            await Order.create({
+                total_price,
+                order_adress,
+                products,
+                buyer,
             });
-
-            form.parse(req, async (err, fields, files) => {
-                console.log(files);
-                const { name, description, typeId, stock, price, slug } = fields;
-                const image = files.image.newFilename;
-                await Order.create({
-                    name,
-                    description,
-                    image,
-                    typeId,
-                    stock,
-                    price,
-                    slug,
-                });
-                return res.send({ msg: "Order successfully created" });
-            });
+            return res.send({ msg: "Order successfully created" });
         } catch (err) {
             console.error(err);
             return res.send({ msg: "Failed to create order" });

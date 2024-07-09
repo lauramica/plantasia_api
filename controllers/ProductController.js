@@ -30,7 +30,6 @@ const ProductController = {
             });
 
             form.parse(req, async (err, fields, files) => {
-                console.log(files);
                 const { name, description, typeId, stock, price, slug } = fields;
                 const image = files.image.newFilename;
                 await Product.create({

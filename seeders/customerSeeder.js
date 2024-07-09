@@ -1,13 +1,16 @@
 const { faker } = require("@faker-js/faker");
 const { Customer } = require("../models");
+const bcrypt = require("bcryptjs");
 
 async function customerSeeder() {
+    const hashedPassword = await bcrypt.hash("1234", 12);
+
     const customers = [
         {
             email: "customer@gmail.com",
             firstname: "customerFirstName",
             lastname: "customerLastName",
-            password: "1234",
+            password: hashedPassword,
             phone: "092998877",
         },
     ];
@@ -20,7 +23,7 @@ async function customerSeeder() {
             email: faker.internet.email({ firstName, lastName, provider: "gmail.com" }),
             firstname: firstName,
             lastname: lastName,
-            password: "1234",
+            password: hashedPassword,
         });
     }
 
