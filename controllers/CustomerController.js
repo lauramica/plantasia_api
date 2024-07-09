@@ -23,23 +23,22 @@ const CustomerController = {
                 user: customer,
             });
         } catch (err) {
-            console.error(err);
-            res.json({ message: "There was a mistake showing the customer" });
+            console.log(err);
+            return res.json({ error: "There was an error finding the customer" });
         }
     },
     create: async (req, res) => {
         try {
-            const { firstname, lastname, email, password } = req.body;
             await Customer.create({
-                firstname,
-                lastname,
-                email,
-                password: await bcrypt.hash(password, 12),
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                password: req.body.password,
             });
             return res.json({ message: "Customer successfully created" });
         } catch (err) {
-            console.error(err);
-            res.json({ message: "There was a mistake creating the customer" });
+            console.log(err);
+            return res.json({ error: "There was an error creating the customer" });
         }
     },
 
@@ -52,10 +51,10 @@ const CustomerController = {
                 address: req.body.address,
                 phone: req.body.phone,
             });
-            return res.json({ message: "Customer updated" });
+            return res.json({ message: "Customer successfully updated" });
         } catch (err) {
-            console.error(err);
-            res.json({ message: "There was a mistake updating the customer" });
+            console.log(err);
+            return res.json({ error: "There was an error updating the customer" });
         }
     },
     destroy: async (req, res) => {

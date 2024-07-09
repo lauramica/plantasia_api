@@ -20,7 +20,7 @@ const AdminController = {
             });
         } catch (err) {
             console.error(err);
-            res.json({ message: "There was a mistake creating the admin" });
+            res.json({ message: "There was a mistake finding the admin" });
         }
     },
     create: async (req, res) => {
@@ -64,7 +64,7 @@ const AdminController = {
                     email,
                     avatar,
                 });
-                return res.json({ message: "Admin successfully updating" });
+                return res.json({ message: "Admin successfully updated" });
             });
         } catch (err) {
             console.error(err);
