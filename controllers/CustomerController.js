@@ -33,7 +33,16 @@ const CustomerController = {
             address: req.body.address,
             phone: req.body.phone,
         });
-        return res.json({ message: "Usuario editado" });
+        return res.json({ message: "Customer updated" });
+    },
+    destroy: async (req, res) => {
+        try {
+            await Customer.destroy({ where: { id: req.params.id } });
+            return res.json({ message: "Customer successfully deleted" });
+        } catch (error) {
+            console.error(err);
+            res.json({ message: "There was a mistake deleting the customer" });
+        }
     },
 };
 
