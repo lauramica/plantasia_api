@@ -6,6 +6,6 @@ router.get("/", CustomerController.showList);
 router.get("/:id", CustomerController.show);
 router.post("/", CustomerController.create);
 router.post("/:id", CustomerController.update);
-// router.get("/:id", CustomerController.destroy);
+router.get("/:id/delete", CustomerController.destroy);
 
 module.exports = router;
