@@ -21,7 +21,7 @@ const CustomerController = {
                 include: Order,
             });
             return res.json({
-                user: customer,
+                customer: customer,
             });
         } catch (err) {
             console.log(err);
@@ -83,6 +83,7 @@ const CustomerController = {
                 lastname: customer.lastname,
                 email: customer.email,
                 address: customer.address,
+                phone: customer.phone,
             });
         } catch (err) {
             console.error(err);

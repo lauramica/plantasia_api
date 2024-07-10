@@ -16,7 +16,7 @@ const AdminController = {
                 attributes: { exclude: ["password"] },
             });
             return res.json({
-                user: admin,
+                admin: admin,
             });
         } catch (err) {
             console.error(err);
