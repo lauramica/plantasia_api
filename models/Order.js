@@ -15,7 +15,7 @@ class Order extends Model {
                     allowNull: false,
                 },
                 order_address: {
-                    type: DataTypes.TEXT,
+                    type: DataTypes.JSON,
                     allowNull: false,
                 },
                 state: {
@@ -35,6 +35,10 @@ class Order extends Model {
                 },
                 buyer: {
                     type: DataTypes.JSON,
+                    allowNull: false,
+                },
+                payment: {
+                    type: DataTypes.TEXT,
                     allowNull: false,
                 },
             },

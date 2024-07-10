@@ -24,6 +24,7 @@ async function orderSeeder() {
                 firstname: "customerFirstName",
                 lastname: "customerLastName",
             },
+            payment: "creditCard",
             customerId: 1,
         });
     }
