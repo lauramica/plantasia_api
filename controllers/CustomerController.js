@@ -1,4 +1,4 @@
-const { Customer } = require("../models");
+const { Customer, Order } = require("../models");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
@@ -18,6 +18,7 @@ const CustomerController = {
         try {
             const customer = await Customer.findByPk(req.params.id, {
                 attributes: { exclude: ["password"] },
+                include: Order,
             });
             return res.json({
                 user: customer,
@@ -68,13 +69,13 @@ const CustomerController = {
     },
     getToken: async (req, res) => {
         try {
-            const costumer = await Costumer.findOne({ where: { email: req.body.email } });
-            if (!costumer) return res.json({ msg: "Verify your credentials" });
+            const customer = await Customer.findOne({ where: { email: req.body.email } });
+            if (!customer) return res.json({ msg: "Verify your credentials" });
 
-            const match = await bcrypt.compare(req.body.password, costumer.password);
+            const match = await bcrypt.compare(req.body.password, customer.password);
             if (!match) return res.json({ msg: "Verifique sus credenciales" });
 
-            const token = jwt.sign({ sub: costumer.id }, process.env.JWT_SECRET_CUSTOMER);
+            const token = jwt.sign({ sub: customer.id, role: "customer" }, process.env.JWT_SECRET);
             return res.json({
                 token,
             });

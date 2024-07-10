@@ -15,7 +15,7 @@ const ProductController = {
     },
     show: async (req, res) => {
         try {
-            const product = await Product.findByPk(req.params.id);
+            const product = await Product.findByPk(req.params.id, { include: Type });
             return res.json({ product });
         } catch (err) {
             console.error(err);

@@ -90,7 +90,7 @@ const AdminController = {
             const match = await bcrypt.compare(req.body.password, admin.password);
             if (!match) return res.json({ msg: "Verifique sus credenciales" });
 
-            const token = jwt.sign({ sub: admin.id }, process.env.JWT_SECRET_ADMIN);
+            const token = jwt.sign({ sub: admin.id, role: "admin" }, process.env.JWT_SECRET);
 
             return res.json({
                 token,

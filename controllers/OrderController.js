@@ -33,7 +33,6 @@ const OrderController = {
                 payment,
                 // customerId,
             });
-            console.log(order);
             return res.send({ msg: "Order successfully created", id: order.id });
         } catch (err) {
             console.error(err);
