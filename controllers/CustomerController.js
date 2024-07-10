@@ -78,6 +78,11 @@ const CustomerController = {
             const token = jwt.sign({ sub: customer.id, role: "customer" }, process.env.JWT_SECRET);
             return res.json({
                 token,
+                id: customer.id,
+                firstname: customer.firstname,
+                lastname: customer.lastname,
+                email: customer.email,
+                address: customer.address,
             });
         } catch (err) {
             console.error(err);
