@@ -34,7 +34,7 @@ const CustomerController = {
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 email: req.body.email,
-                password: req.body.password,
+                password: await bcrypt.hash(req.body.password, 12),
             });
             return res.json({ message: "Customer successfully created" });
         } catch (err) {
