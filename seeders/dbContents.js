@@ -1211,7 +1211,7 @@ const dbContents = {
             slug: "soil-checker",
         },
     ],
-    types: [{ name: "Plants" }, { name: "Pots" }, { name: "Care" }, { name: "Accesories" }],
+    types: [{ name: "plants" }, { name: "pots" }, { name: "care" }, { name: "accesories" }],
 };
 
 module.exports = dbContents;
