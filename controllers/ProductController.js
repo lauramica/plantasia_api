@@ -1,4 +1,4 @@
-const { Product } = require("../models");
+const { Product, Type } = require("../models");
 const formidable = require("formidable");
 
 const ProductController = {
@@ -6,7 +6,7 @@ const ProductController = {
         try {
             const limit = req.query.limit ? Number(req.query.limit) : 10;
             const offset = req.query.page ? (Number(req.query.page) - 1) * limit : 0;
-            const products = await Product.findAll({ offset: offset, limit: limit });
+            const products = await Product.findAll({ offset: offset, limit: limit, include: Type });
             return res.json({ products });
         } catch (err) {
             console.error(err);

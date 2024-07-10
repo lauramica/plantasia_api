@@ -23,9 +23,9 @@ const OrderController = {
     store: async (req, res) => {
         try {
             const { total_price, order_address, products, buyer, payment } = req.body;
-            console.log(req);
+            // console.log(req);
             // const customerId = req.auth.sub;
-            await Order.create({
+            const order = await Order.create({
                 total_price,
                 order_address,
                 products,
@@ -33,7 +33,8 @@ const OrderController = {
                 payment,
                 // customerId,
             });
-            return res.send({ msg: "Order successfully created" });
+            console.log(order);
+            return res.send({ msg: "Order successfully created", id: order.id });
         } catch (err) {
             console.error(err);
             return res.send({ msg: "Failed to create order" });
