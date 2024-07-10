@@ -22,12 +22,16 @@ const OrderController = {
     },
     store: async (req, res) => {
         try {
-            const { total_price, order_adress, products, buyer } = req.body;
+            const { total_price, order_address, products, buyer, payment } = req.body;
+            console.log(req);
+            // const customerId = req.auth.sub;
             await Order.create({
                 total_price,
-                order_adress,
+                order_address,
                 products,
                 buyer,
+                payment,
+                // customerId,
             });
             return res.send({ msg: "Order successfully created" });
         } catch (err) {
