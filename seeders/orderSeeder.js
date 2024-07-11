@@ -13,7 +13,7 @@ async function orderSeeder() {
                 {
                     name: "Baby Florida Ghost (Philodendron)",
                     image: "bby_florida_ghost.png",
-                    typeId: 1,
+                    type: "plants",
                     price: 32.45,
                     quantity: 2,
                 },
