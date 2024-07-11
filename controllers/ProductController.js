@@ -63,7 +63,7 @@ const ProductController = {
 
             form.parse(req, async (err, fields, files) => {
                 const { name, description, typeId, stock, price, trending, slug } = fields;
-                const image = files.image.newFilename;
+                const image = files.image && files.image.newFilename;
                 await Product.update(
                     {
                         name,
