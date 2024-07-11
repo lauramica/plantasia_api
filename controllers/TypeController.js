@@ -12,7 +12,9 @@ const TypeController = {
     },
     show: async (req, res) => {
         try {
-            const type = await Type.findByPk(req.params.id, { include: Product });
+            const type = await Type.findByPk(req.params.id, {
+                include: [{ model: Product, include: Type }],
+            });
             return res.json({ type });
         } catch (err) {
             console.error(err);

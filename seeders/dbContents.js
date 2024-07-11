@@ -532,7 +532,7 @@ const dbContents = {
             name: "Grey Terracotta Pot Ø 14 cm",
             description:
                 "Terracotta is a real classic but can be fragile. The image pictured is indicative, but please note that the pot you receive can contain small imperfections. Let's say they are 'perfectly imperfect' and unique in their very own way!",
-            image: "gery_terracotta_pot_medium.png",
+            image: "grey_terracotta_pot_medium.png",
             typeId: 2,
             stock: 5,
             price: 9.95,
@@ -555,7 +555,7 @@ const dbContents = {
             description:
                 "A atomizer, also known as a plant sprayer, is very important when caring for your plant. Many plants need high humidity because they are naturally used to it. This golden atomizer is not only handy, but also has a nice look that makes it a fun decorative item!",
             image: "atomizer_gold.png",
-            typeId: 2,
+            typeId: 3,
             stock: 11,
             price: 28.95,
             trending: true,
@@ -566,7 +566,7 @@ const dbContents = {
             description:
                 "If you want to water your (tender) seedlings, but also larger plants that does not flow down rock hard immediately but comes out gently from the watering can, then this thumb watering can is really recommended. This handmade terracotta thumb watering can consists of a hole at the top and small holes at the bottom that provides your plants with a lovely rain shower. How should you use the watering can? Hold the thumb watering can under water and let it fill up. Place your thumb on the hole at the top. Remove the watering can from the water and hold it over the seedling or plant you want to water. Remove your thumb from the hole and water the plant. Place your thumb back on the hole to stop the fine spray of water. It's that simple! You create a natural rain effect with this. Also, the thumb caster also serves for rinsing off pests.",
             image: "terracotta_watering_can.png",
-            typeId: 2,
+            typeId: 3,
             stock: 5,
             price: 12.45,
             trending: true,
@@ -577,7 +577,7 @@ const dbContents = {
             description:
                 "Manny is our basic water giver made from 100% recycled plastic and is also fully recyclable after use. Despite the fact that you won't get to this anytime soon because of Manny's timeless look and operation, we think this is a huge plus. The more Manny, the better! Because Manny will last a plant life, and with his help, that will be a very long life! ;) That's why we also have Manny as a set of watering can and sprinkler, ready to give your plants a good watering?",
             image: "elho_manny_watering_set.png",
-            typeId: 2,
+            typeId: 3,
             stock: 14,
             price: 20.45,
             trending: true,
@@ -588,7 +588,7 @@ const dbContents = {
             description:
                 "With the Ancho Watering Can you will water your plants with extra joy! The Watering can is pretty in every interior as is it completely made of metal and available in three pretty colours: black, off white and green. Next to its beauty, the can has a cylinder shape with a capacity of approximately 1.2L, so enough excuses to show off this can while watering your green friends.",
             image: "ancho_watering_can_black.png",
-            typeId: 2,
+            typeId: 3,
             stock: 9,
             price: 20.95,
             trending: true,
@@ -599,7 +599,7 @@ const dbContents = {
             description:
                 "With the Ancho Watering Can you will water your plants with extra joy! The Watering can is pretty in every interior as is it completely made of metal and available in three pretty colours: black, off white and green. Next to its beauty, the can has a cylinder shape with a capacity of approximately 1.2L, so enough excuses to show off this can while watering your green friends.",
             image: "ancho_watering_can_green.png",
-            typeId: 2,
+            typeId: 3,
             stock: 13,
             price: 20.95,
             trending: true,
@@ -610,7 +610,7 @@ const dbContents = {
             description:
                 "It's time to water your PLNTS in style! With the Haws Watering Can (1L) you will never forget to water your beauty's again. The watering can is so pretty that you feel the need to show and use it! It has a classic watering can shape, available in 4 colours: green, grey, dark grey and copper. The can is easy to store or also to use as decoration.",
             image: "haw_watering_can_copper.png",
-            typeId: 2,
+            typeId: 3,
             stock: 9,
             price: 100.45,
             trending: true,
@@ -621,7 +621,7 @@ const dbContents = {
             description:
                 "The Plunge Watering Can will bring you some extra joy while watering your plants. Because of its unique, stylish appearance, it will also be a nice decoration piece. The black plastic watering can has a slim neck and a big filling opening, which makes it comfortable to hold. With a capacity of 1.7L will Plunge definitely be of great use when you're parent to multiple plants.",
             image: "elho_plunge_watering_can_black.png",
-            typeId: 2,
+            typeId: 3,
             stock: 10,
             price: 14.45,
             trending: true,
@@ -1211,7 +1211,7 @@ const dbContents = {
             slug: "soil-checker",
         },
     ],
-    types: [{ name: "plants" }, { name: "pots" }, { name: "care" }, { name: "accesories" }],
+    types: [{ name: "plants" }, { name: "pots" }, { name: "care" }, { name: "accessories" }],
 };
 
 module.exports = dbContents;
