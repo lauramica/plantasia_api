@@ -31,11 +31,12 @@ const AdminController = {
             });
             form.parse(req, async (err, fields, files) => {
                 const { firstname, lastname, password, email } = fields;
-                const avatar = files.avatar.newFilename;
+                const avatar = files.avatar && files.avatar.newFilename;
+                const hash = await bcrypt.hash(password, 12);
                 await Admin.create({
                     firstname,
                     lastname,
-                    password: await bcrypt.hash(password, 12),
+                    password: hash,
                     email,
                     avatar,
                 });
