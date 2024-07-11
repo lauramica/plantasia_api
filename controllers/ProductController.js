@@ -4,7 +4,7 @@ const formidable = require("formidable");
 const ProductController = {
     showList: async (req, res) => {
         try {
-            const limit = req.query.limit ? Number(req.query.limit) : 10;
+            const limit = req.query.limit ? Number(req.query.limit) : 12;
             const offset = req.query.page ? (Number(req.query.page) - 1) * limit : 0;
             const products = await Product.findAll({ offset: offset, limit: limit, include: Type });
             return res.json({ products });
