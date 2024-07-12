@@ -11,8 +11,12 @@ class Customer extends Model {
                     allowNull: false,
                 },
                 email: {
-                    type: DataTypes.TEXT,
+                    type: DataTypes.STRING,
                     allowNull: false,
+                    unique: true,
+                    validate: {
+                        isEmail: true,
+                    },
                 },
                 firstname: {
                     type: DataTypes.TEXT,

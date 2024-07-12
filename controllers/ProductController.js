@@ -5,14 +5,15 @@ const ProductController = {
     showList: async (req, res) => {
         try {
             const limit = Number(req.query.limit);
+            const typeId = Number(req.query.typeId);
             /*             const offset = req.query.page ? (Number(req.query.page) - 1) * limit : 0;
             const products = await Product.findAll({ offset: offset, limit: limit, include: Type }); */
-
-            if (limit) {
-                const products = await Product.findAll({ limit: limit, include: Type });
-                return res.json({ products });
+            const options = { include: Type };
+            if (limit) options.limit = limit;
+            if (typeId) {
+                if (await Type.findByPk(typeId)) options.where = { typeId };
             }
-            const products = await Product.findAll({ include: Type });
+            const products = await Product.findAll(options);
             return res.json({ products });
         } catch (err) {
             console.error(err);

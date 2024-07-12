@@ -11,8 +11,9 @@ class Product extends Model {
                     allowNull: false,
                 },
                 name: {
-                    type: DataTypes.TEXT("tiny"),
+                    type: DataTypes.STRING,
                     allowNull: false,
+                    unique: true,
                 },
                 description: {
                     type: DataTypes.TEXT,
@@ -38,8 +39,9 @@ class Product extends Model {
                     defaultValue: false,
                 },
                 slug: {
-                    type: DataTypes.TEXT("tiny"),
+                    type: DataTypes.STRING,
                     allowNull: false,
+                    unique: true,
                 },
             },
             {

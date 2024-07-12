@@ -24,7 +24,9 @@ const OrderController = {
         try {
             const { total_price, order_address, products, buyer, payment } = req.body;
             const customerId = req.auth.sub;
+            const order_id = await bcrypt(`${Date}${customerId}${buyer.email}`, 12);
             const order = await Order.create({
+                order_id,
                 total_price,
                 order_address,
                 products,

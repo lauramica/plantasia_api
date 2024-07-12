@@ -10,6 +10,11 @@ class Order extends Model {
                     autoIncrement: true,
                     allowNull: false,
                 },
+                order_id: {
+                    type: DataTypes.STRING,
+                    unique: true,
+                    allowNull: false,
+                },
                 total_price: {
                     type: DataTypes.DECIMAL(5, 2),
                     allowNull: false,

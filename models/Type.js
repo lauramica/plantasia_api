@@ -11,8 +11,9 @@ class Type extends Model {
                     allowNull: false,
                 },
                 name: {
-                    type: DataTypes.TEXT("tiny"),
+                    type: DataTypes.STRING,
                     allowNull: false,
+                    unique: true,
                 },
             },
             {

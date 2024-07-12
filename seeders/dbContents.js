@@ -826,7 +826,7 @@ const dbContents = {
             slug: "biological-pest-control-aphids",
         },
         {
-            name: "Biological pest control: spider mites",
+            name: "Pest control: spider mites",
             description:
                 "Fortunately, combating this infestation is achievable with the introduction of predatory creatures known as Nicus, known for their voracious appetite. Each of these creatures can consume up to 160 spider mite eggs, and a package typically contains around 100 of them. Over a span of 4-6 weeks, they'll proliferate in your environment, multiplying to approximately 2000, all the while eradicating the infestation without causing harm to your plants.",
             image: "pest_control_spider_mites.png",
@@ -834,7 +834,7 @@ const dbContents = {
             stock: 23,
             price: 12.45,
             trending: true,
-            slug: "biological-pest-control-spider-mites",
+            slug: "pest-control-spider-mites",
         },
         {
             name: "Biological pest control: spider mites",
