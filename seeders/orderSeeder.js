@@ -6,7 +6,7 @@ async function orderSeeder() {
     const orders = [];
 
     for (let i = 0; i < 3; i++) {
-        const nanoid = customAlphabet("1234567890abcdefghijklmnopqrstuvwxyz", 8);
+        const nanoid = customAlphabet("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 8);
         orders.push({
             total_price: 64.9,
             order_address: {

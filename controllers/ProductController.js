@@ -1,3 +1,4 @@
+const { default: slugify } = require("slugify");
 const { Product, Type } = require("../models");
 const formidable = require("formidable");
 
@@ -37,8 +38,9 @@ const ProductController = {
             });
 
             form.parse(req, async (err, fields, files) => {
-                const { name, description, typeId, stock, price, slug } = fields;
+                const { name, description, typeId, stock, price } = fields;
                 const image = files.image.newFilename;
+                const slug = slugify(name, { lower: true });
                 await Product.create({
                     name,
                     description,
