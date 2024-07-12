@@ -18,7 +18,8 @@ const CustomerController = {
         try {
             const customer = await Customer.findByPk(req.params.id, {
                 attributes: { exclude: ["password"] },
-                include: Order,
+                include: [{ model: Order }],
+                order: [[Order, "createdAt", "DESC"]],
             });
             return res.json({
                 customer: customer,
