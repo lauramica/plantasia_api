@@ -8,14 +8,14 @@ async function customerSeeder() {
     const customers = [
         {
             email: "customer@gmail.com",
-            firstname: "customerFirstName",
-            lastname: "customerLastName",
+            firstname: "Flora",
+            lastname: "Seeders",
             address: {
-                address: "customerStreet customerNumber",
-                city: "customerCity",
-                state: "customerState",
-                country: "UY",
-                postalcode: "customerPostalCode",
+                address: "Bush 5173",
+                city: "Enchanted Forest",
+                state: "Far Far Away Land",
+                country: "NL",
+                postalcode: "3739 UY",
             },
             password: hashedPassword,
             phone: "092998877",
