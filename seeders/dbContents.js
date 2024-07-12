@@ -477,6 +477,7 @@ const dbContents = {
             name: "Barnie Basket Cream Ø 13 cm",
             description:
                 "Give your urban jungle a natural and summery upgrade with Barnie!  However, keep in mind, this is not waterproof, so placing a saucer at the bottom of the basket is a smart move against leakage.",
+            image: "barnie_basket_cream.png",
             typeId: 2,
             stock: 13,
             price: 5.95,
@@ -993,6 +994,7 @@ const dbContents = {
             name: "Toby Terrarium Tool Kit",
             description:
                 "This is a two-piece terrarium tool kit that includes an extendable rake and shovel. The tool kit is specially made for terrarium work and therefore made of stainless steel material.",
+            image: "toby_terrarium_tool_kit.png",
             typeId: 4,
             stock: 9,
             price: 14.45,
@@ -1190,6 +1192,7 @@ const dbContents = {
             name: "Plant Care Tool Set",
             description:
                 "If you need to remove old stems or are going to repot your plant, this 2-piece set is an absolute must. It includes a metal garden shovel and pruning shears.",
+            image: "plant_care_tool_set.png",
             typeId: 4,
             stock: 13,
             price: 32.45,
