@@ -24,7 +24,7 @@ const OrderController = {
     store: async (req, res) => {
         try {
             const { total_price, order_address, products, buyer, payment } = req.body;
-            const nanoid = customAlphabet("1234567890abcdefghijklmnopqrstuvwxyz", 8);
+            const nanoid = customAlphabet("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 8);
             const customerId = req.auth.sub;
             const order_id = nanoid();
             const order = await Order.create({
