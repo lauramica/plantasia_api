@@ -84,7 +84,6 @@ const AdminController = {
     getToken: async (req, res) => {
         try {
             const admin = await Admin.findOne({ where: { email: req.body.email } });
-            console.log(admin);
 
             if (!admin) return res.json({ msg: "Verify your credentials" });
 
