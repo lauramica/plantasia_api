@@ -9,7 +9,13 @@ async function orderSeeder() {
         const nanoid = customAlphabet("1234567890abcdefghijklmnopqrstuvwxyz", 8);
         orders.push({
             total_price: 64.9,
-            order_address: "Mercedes 1568, Montevideo, Uruguay",
+            order_address: {
+                address: "customerStreet Number",
+                city: "customerCity",
+                state: "customerState",
+                country: "UY",
+                postalcode: "customerPostalCode",
+            },
             order_id: nanoid(),
             state: "delivered",
             products: [

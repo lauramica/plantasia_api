@@ -1,3 +1,4 @@
+const { customAlphabet } = require("nanoid");
 const { Order } = require("../models");
 const formidable = require("formidable");
 
@@ -23,8 +24,9 @@ const OrderController = {
     store: async (req, res) => {
         try {
             const { total_price, order_address, products, buyer, payment } = req.body;
+            const nanoid = customAlphabet("1234567890abcdefghijklmnopqrstuvwxyz", 8);
             const customerId = req.auth.sub;
-            const order_id = await bcrypt(`${Date}${customerId}${buyer.email}`, 12);
+            const order_id = nanoid();
             const order = await Order.create({
                 order_id,
                 total_price,

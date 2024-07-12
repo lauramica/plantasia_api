@@ -10,6 +10,13 @@ async function customerSeeder() {
             email: "customer@gmail.com",
             firstname: "customerFirstName",
             lastname: "customerLastName",
+            address: {
+                address: "customerStreet customerNumber",
+                city: "customerCity",
+                state: "customerState",
+                country: "UY",
+                postalcode: "customerPostalCode",
+            },
             password: hashedPassword,
             phone: "092998877",
         },

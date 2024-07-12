@@ -35,7 +35,7 @@ class Customer extends Model {
                     allowNull: true,
                 },
                 address: {
-                    type: DataTypes.TEXT,
+                    type: DataTypes.JSON,
                     allowNull: true,
                 },
             },
