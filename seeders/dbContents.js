@@ -3,7 +3,7 @@ const dbContents = {
         {
             name: "Baby Florida Ghost (Philodendron)",
             description:
-                "This is a ghost you do want in your house! ;) The Philodendron Florida Ghost is a very rare plant with amazing abilities. Young leaves turn white and slowly fade to green. With this baby, you can see the whole process and all the stages between white and green, which is really enchanting. It is from these white leaves that she gets her name 'Ghost', which she has honestly earned. On top of this super cool colour change, she also has a very unique leaf shape. All in all a great plant that will steal the show in your urban jungle!",
+                "This is a ghost you want in your house! The Philodendron Florida Ghost is a very rare plant with amazing abilities. Young leaves turn white and slowly fade to green. All in all a great plant that will steal the show in your urban jungle!",
             image: "bby_florida_ghost.png",
             typeId: 1,
             stock: 18,
@@ -14,7 +14,7 @@ const dbContents = {
         {
             name: "Baby Frydek (Alocasia, Elephant Ears)",
             description:
-                "The Alocasia Frydek is also known as the Green Velvet Alocasia because of its velvety leaves. You can recognise her by her arrow-shaped foliage with beautiful bright white veins. Even as a baby it almost look like she is glowing! How cute that you can raise your own baby Alocasia Frydek? Witness every new leaf of this cute BabyPLNT and don't forget to capture these moments, because before you know it, she's big!",
+                "The Alocasia Frydek is also known as the Green Velvet Alocasia because of its velvety leaves. You can recognise her by her arrow-shaped foliage with beautiful bright white veins.",
             image: "bby_frydek.png",
             typeId: 1,
             stock: 20,
@@ -25,7 +25,7 @@ const dbContents = {
         {
             name: "Baby Jacklyn (Alocasia, Elephant Ears)",
             description:
-                "This Baby Alocasia is one with extraordinary leaf shape! This is the Alocasia Jacklyn and she is really something special. These amazing leaves are covered in dark green nerves, a real artwork from head to toe… uuh, leaves to roots. :) This plant is not known by many PLNTSlovers yet, since she was only discovered pretty recently. Don't hesitate to add this rare beauty to your ever growing home!",
+                "This Baby Alocasia is one with extraordinary leaf shape! This is the Alocasia Jacklyn and she is really something special. These amazing leaves are covered in dark green nerves, a real artwork from leaves to roots. This plant is not known by many plant parents yet, since she was only discovered pretty recently. Don't hesitate to add this rare beauty to your ever growing home!",
             image: "bby_jacklyn.png",
             typeId: 1,
             stock: 3,
@@ -47,7 +47,7 @@ const dbContents = {
         {
             name: "Baby Obliqua (Monstera)",
             description:
-                "The Obliqua is already the smallest species of the Monstera family, but this baby must be the tiniest one! Isn't she the cutest? The Monstera Obliqua stands out with her extremely fenestrated leaves and frayed leaf edges. This unicorn plant is the one for rare plant collectors. No matter how big your collection will grow, this plant will take her moment of shine! Will this baby also shine within your collection? Buy Monstera Oblique online.",
+                "The Obliqua is already the smallest species of the Monstera family. The Monstera Obliqua stands out with her extremely fenestrated leaves and frayed leaf edges. This unicorn plant is the one for rare plant collectors. No matter how big your collection will grow, this plant will take her moment of shine!",
             image: "bby_obliqua.png",
             typeId: 1,
             stock: 3,
@@ -58,7 +58,7 @@ const dbContents = {
         {
             name: "Baby Pink Princess (Philodendron)",
             description:
-                "Isn't she pretty and cute! The Philodendron Pink Princess baby. She has beautiful dark green leaves, in the shape of arrows, that are decorated with an explosion of pink colour. Even the undersides of her leaves have an amazing red/coppery hue. She really is a living work of art. Luckily she is now also available as baby plant, so with your care and love, she will grow into a bigger and beautiful princess. Try to keep your eyes off her!",
+                "The Philodendron Pink Princess has beautiful dark green leaves, that are decorated with an explosion of pink colour. Even the undersides of her leaves have an amazing red/coppery hue. She really is a living work of art.",
             image: "bby_pink_princess.png",
             typeId: 1,
             stock: 7,
@@ -69,7 +69,7 @@ const dbContents = {
         {
             name: "Baby Rowleyanus (Senecio, String of pearls)",
             description:
-                "The baby Ceropegia Woodii is also known as the ‘string of hearts' or the Chinese lantern plant. She's a popular hanging plant which takes her name from the little heart-shaped leaves which hang down on thin stems. The Baby Ceropegia Woodii String of Hearts originates from Zimbabwe and South Africa. Here she grows between the rocks, hanging down in long strings. She'll be just as happy in your warm home and will grow well, but be sure to put her in a pot on a higher cupboard or opt for a hanging pot, because her strands can grow up to 3 metres long!",
+                "The Senecio Rowleyanus, commonly known as String of Pearls, is an easy-care hanging plant. She owns her nickname to the characteristic small green balls on the plant that are similar to pearls. The rowleyanus is a woman of many names, even referred to as ‘Pearl Plant’ and ‘String of Beads’. She is a beautiful and fun plant that will add a little quirkiness to any home!",
             image: "bby_rowleyanus.png",
             typeId: 1,
             stock: 5,
@@ -80,7 +80,7 @@ const dbContents = {
         {
             name: "Baby Thai Constellation (Monstera)",
             description:
-                "Here is the most beloved and rare Thai Constellation. To make her even more desirable, this is the cute baby form! She earns her name on her variegation that looks like a constellation. In contrast to most variegated plants, the Thai's variegation is stable, yay! This is because she was especially produced for this, which also means that you will not be able to find this cutie anywhere in nature. All with all, a very special plant that would love a spot inside your urban jungle!",
+                "Here is the most beloved and rare Thai Constellation. She earns her name on her variegation that looks like a constellation. In contrast to most variegated plants, the Thai's variegation is stable, yay! This is because she was especially produced for this, which also means that you will not be able to find this cutie anywhere in nature.",
             image: "bby_thai_constellation.png",
             typeId: 1,
             stock: 12,
@@ -91,7 +91,7 @@ const dbContents = {
         {
             name: "Baby Warocqueanum (Anthurium, Flamingo flowers)",
             description:
-                "This small baby will grow into a magnificent plant with huge leaves! This is the Anthurium Warocqueanum and she is loved for her rich and dark foliage. With this baby you have the chance to admire her growth in every life stage, which is pretty fascinating. One glance at her and you will fall for her, so be careful! ;) Oh, you have peeked haven't you? Don't worry you can buy Anthurium Warocqueanum here online.",
+                "This small baby will grow into a magnificent plant with huge leaves! This is the Anthurium Warocqueanum and she is loved for her rich and dark foliage. With this baby you have the chance to admire her growth in every life stage, which is pretty fascinating.",
             image: "bby_warocqueanum.png",
             typeId: 1,
             stock: 20,
@@ -102,7 +102,7 @@ const dbContents = {
         {
             name: "Baby Zebrina (Alocasia, Elephant Ears)",
             description:
-                "The baby Alocasia Zebrina is the princess of the plant savannah. With her beautiful zebra-striped stems she is a feast for the eyes. In nature her leaves grow so big that Alocasias are often called the ‘elephant's ear' plant. For many animals in the South East Asian rainforest, the leaves of the Alocasia Zebrina, which can sometimes grow up to 100 centimetres in size, offer a safe hiding place. With your care she will grow into a beautiful houseplant and you'll never get tired of the compliments!",
+                "The baby Alocasia Zebrina is the princess of the plant savannah. With her beautiful zebra-striped stems she is a feast for the eyes. In nature her leaves grow so big that Alocasias are often called the ‘elephant's ear' plant. For many animals in the South East Asian rainforest, the leaves of the Alocasia Zebrina, which can sometimes grow up to 100 centimetres in size, offer a safe hiding place.",
             image: "bby_zebrina.png",
             typeId: 1,
             stock: 11,
@@ -113,7 +113,7 @@ const dbContents = {
         {
             name: "Aquatica (Pachira, Money tree)",
             description:
-                "The braided Pachira Aquatica is a beautiful plant with a braided trunk. Despite her Latin American roots, the Pachira Aquatica is best known in Asia. Her leaves are five-pointed and therefore symbolic in feng shui. She is a real asset as a large houseplant, as she grows fast! In nature, it can even grow up to 25 metres tall! You would then almost say she is a tree rather than a houseplant. Is this braied beauty something for you? Buy Pachira Aqautica here.",
+                "The braided Pachira Aquatica is a beautiful plant with a braided trunk. Despite her Latin American roots, the Pachira Aquatica is best known in Asia. Her leaves are five-pointed and therefore symbolic in feng shui. She is a real asset as a large houseplant, as she grows fast! In nature, it can even grow up to 25 metres tall! You would then almost say she is a tree rather than a houseplant.",
             image: "aquatica.png",
             typeId: 1,
             stock: 20,
@@ -124,7 +124,7 @@ const dbContents = {
         {
             name: "Charlotte (Schefflera, Umbrella tree)",
             description:
-                "The Schefflera Charlotte is often called an umbrella tree, and her variegated leaves make her an eye-catching addition to any plant collection. The characteristic parasol-shaped spreads of leaves are elongated and might remind you of a hand. An easygoing native of China and Taiwan, she will quickly turn out to be one of your favs, because she can make herself at home anywhere. One tip though- she's happiest when you dust her regularly, because her big leaves catch a lot of dust.",
+                "The Schefflera Charlotte is often called an umbrella tree, and her variegated leaves make her an eye-catching addition to any plant collection. The characteristic parasol-shaped spreads of leaves are elongated and might remind you of a hand. She will quickly turn out to be one of your favs, because she can make herself at home anywhere.",
             image: "charlotte.png",
             typeId: 1,
             stock: 2,
@@ -135,7 +135,7 @@ const dbContents = {
         {
             name: "Coconut (Palm, Cocos nucifera)",
             description:
-                "The Cocos Nucifera, better known as “Coconut Palm”, is a green houseplant that is part of, you guessed it, the palm family! This tropical beauty is extra special since the plant grows directly from a coconut. Despite not having many leaves, the Coconut Palm still scores well at filtering the air. This is because palms are naturally very adept air filterers. Will this Coconut Palm filter the air inside your urban jungle? Order Coconut Palm online.",
+                "The Cocos Nucifera, better known as “Coconut Palm”, is a green houseplant that is part of, you guessed it, the palm family! This tropical beauty is extra special since the plant grows directly from a coconut. Despite not having many leaves, the Coconut Palm still scores well at filtering the air. This is because palms are naturally very adept air filterers.",
             image: "coconut.png",
             typeId: 1,
             stock: 6,
@@ -146,7 +146,7 @@ const dbContents = {
         {
             name: "Deliciosa Variegated (Monstera)",
             description:
-                "The Monstera ''Borsigiana'' Deliciosa Variegated is a real show stopper! Her leaves are big, beautiful and heart-shaped, just like a regular Monstera Deliciosa. The thing that makes her special is the deviating colour on her leaves. Her white small paint-like splotches and dots on the leaves make her a stunning piece of art. Variegation is extremely rare, as it is a difficult process to create genetic mutations, so you have to be quick if you want to become her PLNTSparent!",
+                "The Monstera ''Borsigiana'' Deliciosa Variegated is a real show stopper! Her leaves are big, beautiful and heart-shaped, just like a regular Monstera Deliciosa. The thing that makes her special is the deviating colour on her leaves.",
             image: "deliciosa_variegated.png",
             typeId: 1,
             stock: 10,
@@ -157,7 +157,7 @@ const dbContents = {
         {
             name: "Dragon Jade (Dischidia, Dischidia Nummularifolia)",
             description:
-                "This beauty is known for its stacked foliage which looks like it came right out of a fairytale! This couldn't be any other plant than the Dischidia Dragon Jade, which also hints to that enchanting look of hers! Its luscious, cascading leaves create a dreamy vibe, making every day feel like a stroll through a magical woodland. The vibrant green hues and intricate patterns make it a total eye-catcher—seriously, it's like having a piece of nature's artwork right in your room. Are you adding this little piece of fairytale to your urban jungle? Buy Dischidia Nummularifolia online.",
+                "This beauty is known for its stacked foliage which looks like it came right out of a fairytale! This couldn't be any other plant than the Dischidia Dragon Jade! Its luscious, cascading leaves create a dreamy vibe, making every day feel like a stroll through a magical woodland.",
             image: "dragon_jade.png",
             typeId: 1,
             stock: 3,
@@ -179,7 +179,7 @@ const dbContents = {
         {
             name: "Lutescens (Dypsis, Golden Cane Palm)",
             description:
-                "Are you a PLNTSlover that fancies something big and bold? This Dypsis Lutescens is everything you are longing for! This plant consists of multiple ‘palms' inside one pot, together they form this massive plant! She will definitely brighten up your house with her bright green pinnate leaves. You might have heard about this plant under the name ‘Butterfly Palm', which we think is a very fitting nickname for this stunner!",
+                "This Dypsis Lutescens is everything you are longing for! This plant consists of multiple ‘palms' inside one pot, together they form this massive plant! She will definitely brighten up your house with her bright green pinnate leaves. You might have heard about this plant under the name ‘Butterfly Palm', which we think is a very fitting nickname for this stunner!",
             image: "lutescens.png",
             typeId: 1,
             stock: 3,
@@ -201,7 +201,7 @@ const dbContents = {
         {
             name: "Maculata (Begonia, Polka Dot)",
             description:
-                "The Begonia Maculata is also known as the ‘Polka dot' Begonia or ‘Forel' Begonia. Its leaves are olive green and freckled with silvery-white spots on its upper surface. The reverse side is known for its eye-catching red-Bordeaux color. We advise you to place the Begonia Maculata in a spot with plenty of light and warmth. Prevent dehydration by watering the baby plant two times a week. Is this dotted cutie the one you like? Buy Begonia Maculata online.",
+                "The Begonia Maculata is also known as the ‘Polka dot' Begonia or ‘Forel' Begonia. Its leaves are olive green and freckled with silvery-white spots on its upper surface. The reverse side is known for its eye-catching red-Bordeaux color. We advise you to place the Begonia Maculata in a spot with plenty of light and warmth. Prevent dehydration by watering the baby plant two times a week.",
             image: "maculata.png",
             typeId: 1,
             stock: 8,
@@ -212,7 +212,7 @@ const dbContents = {
         {
             name: "Melanochrysum (Philodendron)",
             description:
-                "Philodendron Melanochrysum is striking even among the stunning lineup that is the Philodendron family and is sometimes referred to as the Black Gold Philodendron because of the beautiful gold accents on her leaves. Her leaves, which start out like a fleshy pink before turning almost black with age, get bigger and bigger as she gets taller, so you can enjoy them even more! She is a climber so will be happiest when she has something like a mossy stick to climb up. This weird PLNT blends exotic and refined and will be the centerpiece of any display.",
+                "Philodendron Melanochrysum is striking, referred to as the Black Gold Philodendron because of the beautiful gold accents on her leaves. Her leaves, which start out like a fleshy pink before turning almost black with age, get bigger and bigger as she gets taller! She is a climber so will be happiest when she has something like a mossy stick to climb up.",
             image: "melanochrysum.png",
             typeId: 1,
             stock: 7,
@@ -223,7 +223,7 @@ const dbContents = {
         {
             name: "Oppenheimiana (Calathea, Prayer Plant)",
             description:
-                "Calathea oppenheimiana, also known as Calathea ''Zebra Plant''. Originally from South America, she is known for her striking, dark green leaves with elongated white or yellow patterns, resembling the stripes of a zebra. Besides the beautiful patterns, the leaves of the Oppenheimiana also have a beautiful deep red colour on the back of the leaves. She will also 'close' her leaves at night to open again in the morning. The Calathea is therefore also called the living plant. Are you up for filling your house with greenery? Buy Calathea Oppenheimiana online.",
+                "Calathea oppenheimiana, originally from South America. She is known for her striking, dark green leaves with elongated white or yellow patterns, resembling the stripes of a zebra. Besides the beautiful patterns, the leaves of the Oppenheimiana also have a beautiful deep red colour on the back of the leaves. She will also 'close' her leaves at night to open again in the morning.",
             image: "oppenheimiana.png",
             typeId: 1,
             stock: 3,
@@ -234,7 +234,7 @@ const dbContents = {
         {
             name: "Paradoxa Minor (Rhipsalis, Fishbone cactus) ",
             description:
-                "The Rhipsalis Paradoxa Minor has a very distinctive look. She has long stems that can be thick, thin, straight or slightly curled. These cool stems hang from her pot, giving her a very noteworthy look! So if you are looking for a cool houseplant with an uncommon appearance, you have found your match! Buy Rhipsalis Paradoxa Minor online.",
+                "The Rhipsalis Paradoxa Minor has a very distinctive look. She has long stems that can be thick, thin, straight or slightly curled. These cool stems hang from her pot, giving her a very noteworthy look! So if you are looking for a cool houseplant with an uncommon appearance, you have found your match!",
             image: "paradoxa_minor.png",
             typeId: 1,
             stock: 3,
@@ -245,7 +245,7 @@ const dbContents = {
         {
             name: "Pink Dragon (Alocasia, Elephant Ear)",
             description:
-                "The Alocasia Pink Dragon is such a special plant and, contrary to what her name might suggest, she certainly does not have a dragon-like temper. This ultimate eye-catcher stands out with its pink stalks and metallic silver leaves. Once you see the Alocasia Pink Dragon you'll understand why it demands a special place in your living room!",
+                "The Alocasia Pink Dragon is a special plant. This ultimate eye-catcher stands out with its pink stalks and metallic silver leaves. Once you see the Alocasia Pink Dragon you'll understand why it demands a special place in your living room!",
             image: "pink_dragon.png",
             typeId: 1,
             stock: 3,
@@ -256,7 +256,7 @@ const dbContents = {
         {
             name: "Pinnatum Variegata (Epipremnum, Pothos) ",
             description:
-                "Ready to be stunned by magnificent marble variegated leaves? Introducing the Epipremnum Pinnatum Variegata! With its vibrant green leaves adorned in captivating marble-like patterns, this gem is an absolute showstopper. No matter how many beauties grace your urban oasis, the Variegata effortlessly steals the spotlight. Are you prepared to be entranced by this rare gem? Buy Epipremnum Pinnatum Variegata online.",
+                "Ready to be stunned by magnificent marble variegated leaves? Introducing the Epipremnum Pinnatum Variegata! With its vibrant green leaves adorned in captivating marble-like patterns, this gem is an absolute showstopper. No matter how many beauties grace your urban oasis, the Variegata effortlessly steals the spotlight.",
             image: "pinnatum_variegata.png",
             typeId: 1,
             stock: 3,
@@ -267,7 +267,7 @@ const dbContents = {
         {
             name: "Ramulosa Red Coral (Rhipsalis)",
             description:
-                "The Rhipsalis Ramulosa Red Coral has very special foliage. Her leaves are long and a bit thick. The edges are slightly frayed and the colour is mostly green. But when she receives enough light, she will get a red tint on her leaves, which makes her very extraordinary! This stunning foliage hangs from her pot, which makes her a perfect candidate for that empty place inside your cabinet! Is this pretty plant a match for you? Buy Rhipsalis Ramulosa Red Coral online.",
+                "The Rhipsalis Ramulosa Red Coral has very special foliage. This will change from green to having a red tint when she receives enough light. This stunning foliage hangs from her pot, making her a perfect candidate for that empty place inside your cabinet!",
             image: "ramulosa_red_coral.png",
             typeId: 1,
             stock: 3,
@@ -289,7 +289,7 @@ const dbContents = {
         {
             name: "Regal Shield (Alocasia, Elephant Ear)",
             description:
-                "The Alocasia Regal Shields is part of the Arum family and originates from Asia. It is also known as the Elephant Ear Regal Shields, and upon looking at it's beautiful large, dark green leaves it is easy to understand why it earned itself the nickname of Shield. Don't forget to take a look at the bottom of its leaves as well, these are a gorgeous shade of deep purple! Will this be your new Alocasia? Buy Alocasia Regal Shield online. ",
+                "The Alocasia Regal Shields is part of the Arum family and originates from Asia. Don't forget to take a look at the bottom of its leaves as well, these are a gorgeous shade of deep purple!",
             image: "regal_shield.png",
             typeId: 1,
             stock: 3,
@@ -300,7 +300,7 @@ const dbContents = {
         {
             name: "Stingray (Alocasia, Elephant Ears)",
             description:
-                "The Alocasia Stingray originates from the tropics of South East Asia. In the tropics the leaves of the Alocasia Stingray are used as a hideout because they can grow up till 1 meter wide. The Alocasia Stingray was named after the stingray because of the shape of its leaves. Are you going to adopt this pretty plant? Buy Alocasia Stingray online. ",
+                "The Alocasia Stingray originates from the tropics of South East Asia. In the tropics the leaves of the Alocasia Stingray are used as a hideout for animals because they can grow up till 1 meter wide. It was named after the stingray because of the shape of its leaves.",
             image: "stingray.png",
             typeId: 1,
             stock: 3,
@@ -311,7 +311,7 @@ const dbContents = {
         {
             name: "Tineke (Ficus, Rubber tree plant)",
             description:
-                "Ficus elastica 'Tineke' has large, striking oval leaves, just like her sister Robusta. What is special about Tineke, are her white variegated leaves that look a bit like a camouflage army uniform. The Ficus elastica is also known as the rubber tree. She earned this nickname thanks to the plant sap, that was once used for the production of rubber. Nowadays, this popular plant steals the show in many a living room, where she also provides purified air. NASA even proclaimed her one of the top-10 most air-purifying houseplants in the world!",
+                "The Ficus elastica is also known as the rubber tree. She earned this nickname thanks to the plant sap, that was once used for the production of rubber. Nowadays, this popular plant steals the show in many a living room, where she also provides purified air. NASA even proclaimed her one of the top-10 most air-purifying houseplants in the world!",
             image: "tineke.png",
             typeId: 1,
             stock: 3,
