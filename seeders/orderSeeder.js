@@ -1,16 +1,16 @@
+const { customAlphabet } = require("nanoid");
 const { Order } = require("../models");
 const { faker } = require("@faker-js/faker");
-const bcrypt = require("bcryptjs");
 
 async function orderSeeder() {
     const orders = [];
 
     for (let i = 0; i < 3; i++) {
-        const order_id = await bcrypt.hash(`${Date}${i}1customer@gmail.com`, 12);
+        const nanoid = customAlphabet("1234567890abcdefghijklmnopqrstuvwxyz", 8);
         orders.push({
             total_price: 64.9,
             order_address: "Mercedes 1568, Montevideo, Uruguay",
-            order_id,
+            order_id: nanoid(),
             state: "delivered",
             products: [
                 {
