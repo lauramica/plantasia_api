@@ -32,9 +32,10 @@ const ProductController = {
     },
     store: async (req, res) => {
         try {
+            console.log(process.env.IMAGES_URL);
             const form = formidable({
-                keepExtensions: true,
                 uploadDir: __dirname + `${process.env.IMAGES_URL}/products`,
+                keepExtensions: true,
             });
 
             form.parse(req, async (err, fields, files) => {
