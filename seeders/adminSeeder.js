@@ -11,6 +11,7 @@ async function adminSeeder() {
             firstname: "adminFirstName",
             lastname: "adminLastName",
             password: hashedPassword,
+            avatar: faker.image.avatar(),
         },
     ];
 
@@ -23,6 +24,7 @@ async function adminSeeder() {
             firstname: firstName,
             lastname: lastName,
             password: hashedPassword,
+            avatar: faker.image.avatar(),
         });
     }
 
