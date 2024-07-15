@@ -38,6 +38,10 @@ class Customer extends Model {
                     type: DataTypes.JSON,
                     allowNull: true,
                 },
+                cart: {
+                    type: DataTypes.JSON,
+                    allowNull: true,
+                },
             },
             {
                 sequelize,

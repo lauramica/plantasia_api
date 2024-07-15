@@ -1,4 +1,4 @@
-const { Customer, Order } = require("../models");
+const { Customer, Order, Product, Type } = require("../models");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { nanoid } = require("nanoid");
@@ -19,7 +19,7 @@ const CustomerController = {
         try {
             const customer = await Customer.findByPk(req.params.id, {
                 attributes: { exclude: ["password"] },
-                include: [{ model: Order }],
+                include: [{ model: Order }, { model: Product, include: { model: Type } }],
                 order: [[Order, "createdAt", "DESC"]],
             });
             return res.json({
@@ -53,6 +53,7 @@ const CustomerController = {
                 lastname: req.body.lastname,
                 address: req.body.address,
                 phone: req.body.phone,
+                cart: req.body.product,
             });
             return res.json({ message: "Customer successfully updated" });
         } catch (err) {
@@ -75,6 +76,7 @@ const CustomerController = {
                     postalcode: "-",
                 },
                 phone: "-",
+                cart: [],
                 password: await bcrypt.hash("1234", 12),
             });
             await Customer.destroy({ where: { id: req.params.id } });
