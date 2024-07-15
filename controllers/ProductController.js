@@ -32,10 +32,9 @@ const ProductController = {
     },
     store: async (req, res) => {
         try {
-            const type = Type.findByPk(req.body.typeId);
             const form = formidable({
                 keepExtensions: true,
-                uploadDir: __dirname + `${process.env.IMAGES_URL}/${type.name}`,
+                uploadDir: __dirname + `${process.env.IMAGES_URL}/products`,
             });
 
             form.parse(req, async (err, fields, files) => {
