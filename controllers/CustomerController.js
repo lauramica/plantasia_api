@@ -1,6 +1,7 @@
 const { Customer, Order } = require("../models");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const { nanoid } = require("nanoid");
 
 const CustomerController = {
     showList: async (req, res) => {
@@ -61,6 +62,21 @@ const CustomerController = {
     },
     destroy: async (req, res) => {
         try {
+            const customer = await Customer.findByPk(req.params.id);
+            await customer.update({
+                email: `deleted_${nanoid()}@customer.com`,
+                firstname: "-",
+                lastname: "-",
+                address: {
+                    address: "-",
+                    state: "-",
+                    city: "-",
+                    country: "-",
+                    postalcode: "-",
+                },
+                phone: "-",
+                password: await bcrypt.hash("1234", 12),
+            });
             await Customer.destroy({ where: { id: req.params.id } });
             return res.json({ message: "Customer successfully deleted" });
         } catch (err) {
