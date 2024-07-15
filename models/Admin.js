@@ -33,7 +33,7 @@ class Admin extends Model {
                 avatar: {
                     type: DataTypes.TEXT,
                     allowNull: true,
-                    defaultValue: "default-avatar.png",
+                    defaultValue: "avatar_prueba.png",
                 },
             },
             {
