@@ -10,11 +10,11 @@ async function orderSeeder() {
         orders.push({
             total_price: 64.9,
             order_address: {
-                address: "customerStreet Number",
-                city: "customerCity",
-                state: "customerState",
-                country: "UY",
-                postalcode: "customerPostalCode",
+                address: "Bush 5173",
+                city: "Enchanted Forest",
+                state: "Far Far Away Land",
+                country: "NL",
+                postalcode: "3739 UY",
             },
             order_id: nanoid(),
             state: "delivered",
