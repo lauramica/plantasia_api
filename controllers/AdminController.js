@@ -51,7 +51,7 @@ const AdminController = {
     update: async (req, res) => {
         try {
             const form = formidable({
-                uploadDir: __dirname + "/../public/images/avatars",
+                uploadDir: __dirname + `${process.env.IMAGES_URL}/avatars`,
                 keepExtensions: true,
             });
             form.parse(req, async (err, fields, files) => {
