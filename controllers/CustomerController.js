@@ -19,7 +19,7 @@ const CustomerController = {
         try {
             const customer = await Customer.findByPk(req.params.id, {
                 attributes: { exclude: ["password"] },
-                include: [{ model: Order }, { model: Product, include: { model: Type } }],
+                include: [{ model: Order }],
                 order: [[Order, "createdAt", "DESC"]],
             });
             return res.json({
@@ -53,8 +53,10 @@ const CustomerController = {
                 lastname: req.body.lastname,
                 address: req.body.address,
                 phone: req.body.phone,
-                cart: req.body.product,
+                cart: req.body.cart,
             });
+            if (!req.body.cart) customer.cart = [];
+            await customer.save();
             return res.json({ message: "Customer successfully updated" });
         } catch (err) {
             console.log(err);
