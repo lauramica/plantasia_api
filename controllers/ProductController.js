@@ -38,7 +38,6 @@ const ProductController = {
             const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
             const form = formidable({
-                uploadDir: __dirname + "/../public/backup_images/products",
                 keepExtensions: true,
             });
 
@@ -85,7 +84,6 @@ const ProductController = {
 
             const form = formidable({
                 keepExtensions: true,
-                uploadDir: __dirname + "/../public/images/products",
             });
 
             form.parse(req, async (err, fields, files) => {
