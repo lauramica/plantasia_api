@@ -19,6 +19,7 @@ async function customerSeeder() {
             },
             password: hashedPassword,
             phone: "092998877",
+            cart: [],
         },
     ];
 
@@ -31,6 +32,7 @@ async function customerSeeder() {
             firstname: firstName,
             lastname: lastName,
             password: hashedPassword,
+            cart: [],
         });
     }
 
