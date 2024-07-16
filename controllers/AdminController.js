@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { Admin } = require("../models");
 const formidable = require("formidable");
 const jwt = require("jsonwebtoken");
@@ -57,7 +58,7 @@ const AdminController = {
             form.parse(req, async (err, fields, files) => {
                 const admin = await Admin.findByPk(req.params.id);
                 const { firstname, lastname, password, email } = fields;
-                const avatar = files.avatar.newFilename;
+                const avatar = files.avatar && files.avatar.newFilename;
                 await admin.update({
                     firstname,
                     lastname,

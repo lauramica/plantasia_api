@@ -1,6 +1,9 @@
+const { createClient } = require("@supabase/supabase-js");
 const { default: slugify } = require("slugify");
 const { Product, Type } = require("../models");
 const formidable = require("formidable");
+const path = require("path");
+const fs = require("fs");
 
 const ProductController = {
     showList: async (req, res) => {
@@ -32,43 +35,76 @@ const ProductController = {
     },
     store: async (req, res) => {
         try {
+            const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+
             const form = formidable({
                 keepExtensions: true,
-                uploadDir: __dirname + `${process.env.IMAGES_URL}/products`,
             });
 
             form.parse(req, async (err, fields, files) => {
-                const { name, description, typeId, stock, price } = fields;
-                const image = files.image.newFilename;
-                const slug = slugify(name, { lower: true });
-                await Product.create({
-                    name,
-                    description,
-                    image,
-                    typeId,
-                    stock,
-                    price,
-                    slug,
-                });
-                return res.send({ msg: "Product successfully created" });
+                try {
+                    const { name, description, typeId, stock, price } = fields;
+                    const ext = path.extname(files.image.filepath);
+                    const image = `image_${Date.now()}${ext}`;
+
+                    const slug = slugify(name, { lower: true });
+
+                    const { data, error } = await supabase.storage
+                        .from("images")
+                        .upload(`products/${image}`, fs.createReadStream(files.image.filepath), {
+                            cacheControl: "3600",
+                            upsert: false,
+                            contentType: files.image.mimetype,
+                            duplex: "half",
+                        });
+
+                    await Product.create({
+                        name,
+                        description,
+                        image,
+                        typeId,
+                        stock,
+                        price,
+                        slug,
+                    });
+                    return res.send({ msg: "Product successfully created" });
+                } catch (err) {
+                    console.log(err);
+                    return res.status(400).json({ error: "There was a mistake on the request" });
+                }
             });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to create product" });
+            return res.status(400).send({ error: "Failed to create product" });
         }
     },
     update: async (req, res) => {
         try {
+            const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+
             const form = formidable({
                 keepExtensions: true,
-                uploadDir: __dirname + "/../public/images/products",
             });
 
             form.parse(req, async (err, fields, files) => {
-                const { name, description, typeId, stock, price, trending, slug } = fields;
-                const image = files.image && files.image.newFilename;
-                await Product.update(
-                    {
+                try {
+                    const { name, description, typeId, stock, price, trending, slug } = fields;
+                    const ext = path.extname(files.image.filepath);
+                    const image = `image_${Date.now()}${ext}`;
+
+                    const product = await Product.findByPk(req.params.id);
+
+                    const { data, error } = await supabase.storage
+                        .from("images")
+                        .remove([`products/${product.image}`])
+                        .upload(`products/${image}`, fs.createReadStream(files.image.filepath), {
+                            cacheControl: "3600",
+                            upsert: false,
+                            contentType: files.image.mimetype,
+                            duplex: "half",
+                        });
+
+                    await product.update({
                         name,
                         description,
                         image,
@@ -77,14 +113,16 @@ const ProductController = {
                         price,
                         trending,
                         slug,
-                    },
-                    { where: { id: req.params.id } },
-                );
-                return res.send({ msg: "Product successfully updated" });
+                    });
+                    return res.send({ msg: "Product successfully updated" });
+                } catch (err) {
+                    console.log(err);
+                    return res.status(400).send({ error: "There was a mistake in the request" });
+                }
             });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to update product" });
+            return re.status(400).send({ error: "Failed to update product" });
         }
     },
     destroy: async (req, res) => {
