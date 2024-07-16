@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { Admin } = require("../models");
 const formidable = require("formidable");
 const jwt = require("jsonwebtoken");
