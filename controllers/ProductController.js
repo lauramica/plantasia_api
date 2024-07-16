@@ -40,7 +40,7 @@ const ProductController = {
     },
     store: async (req, res) => {
         try {
-            const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+            const supabase = createClient(process.env.DB_URL, process.env.DB_KEY);
 
             const form = formidable({
                 keepExtensions: true,
@@ -85,7 +85,7 @@ const ProductController = {
     },
     update: async (req, res) => {
         try {
-            const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+            const supabase = createClient(process.env.DB_URL, process.env.DB_KEY);
 
             const form = formidable({ keepExtensions: true });
 
@@ -133,7 +133,7 @@ const ProductController = {
     },
     destroy: async (req, res) => {
         try {
-            const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+            const supabase = createClient(process.env.DB_URL, process.env.DB_KEY);
 
             const product = await Product.findByPk(req.params.id);
 
