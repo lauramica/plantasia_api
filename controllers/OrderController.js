@@ -1,6 +1,6 @@
 const { customAlphabet } = require("nanoid");
 
-const { Order } = require("../models");
+const { Order, Product } = require("../models");
 
 const OrderController = {
     showList: async (req, res) => {
@@ -36,16 +36,32 @@ const OrderController = {
             const customerId = req.auth.sub;
             const order_id = nanoid();
 
+            const newProducts = [];
+            const updatedProducts = products.map(async (product) => {
+                const updatedProduct = await Product.findByPk(product.id);
+                updatedProduct.stock = updatedProduct.stock - product.quantity;
+                if (updatedProduct.stock < 0)
+                    return res.status(400).json({
+                        error: "There's not enough stock of this product",
+                        id: product.id,
+                    });
+                newProducts.push(updatedProduct);
+                updatedProduct.quantity = product.quantity;
+                return updatedProduct;
+            });
+
+            await Product.bulkCreate(newProducts, { updateOnDuplicate: ["id"] });
+
             const order = await Order.create({
                 order_id,
                 total_price,
                 order_address,
-                products,
+                products: updatedProducts,
                 buyer,
                 payment,
                 customerId,
             });
-            return res.json({ msg: "Order successfully created", id: order.id });
+            return res.json({ msg: "Order successfully created", id: order.order_id });
         } catch (err) {
             console.error(err);
             return res.status(400).json({ error: "Failed to create order" });
