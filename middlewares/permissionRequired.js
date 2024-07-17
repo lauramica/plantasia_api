@@ -1,12 +1,12 @@
-const { expressjwt: checkJwt } = require("express-jwt");
-
 const permissionRequired = {
     admin: (req, res, next) => {
         try {
             if (req.auth.role === "admin") next();
         } catch (err) {
             console.error(err);
-            return res.json({ msg: "Access denied: you don't have permission to access" });
+            return res
+                .status(403)
+                .json({ error: "Access denied: you don't have permission to access" });
         }
     },
     customer: (req, res, next) => {
@@ -14,7 +14,9 @@ const permissionRequired = {
             if (req.auth.role === "customer") next();
         } catch (err) {
             console.error(err);
-            return res.json({ msg: "Access denied: you don't have permission to access" });
+            return res
+                .status(403)
+                .json({ error: "Access denied: you don't have permission to access" });
         }
     },
 };

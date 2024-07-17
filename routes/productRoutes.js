@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const ProductController = require("../controllers/ProductController");
-const permissionRequired = require("../middlewares/permissionRequired");
+const { admin } = require("../middlewares/permissionRequired");
 
 router.get("/", ProductController.showList);
 router.get("/:id", ProductController.show);
@@ -14,9 +14,10 @@ router.use(
         algorithms: ["HS256"],
     }),
 );
+router.use(admin);
 
-router.post("/create", permissionRequired.admin, ProductController.store);
-router.post("/edit/:id", permissionRequired.admin, ProductController.update);
-router.get("/delete/:id", permissionRequired.admin, ProductController.destroy);
+router.post("/create", ProductController.store);
+router.post("/edit/:id", ProductController.update);
+router.get("/delete/:id", ProductController.destroy);
 
 module.exports = router;

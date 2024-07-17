@@ -1,8 +1,9 @@
+const { expressjwt: checkJwt } = require("express-jwt");
 const express = require("express");
 const router = express.Router();
+
 const AdminController = require("../controllers/AdminController");
-const { expressjwt: checkJwt } = require("express-jwt");
-const permissionRequired = require("../middlewares/permissionRequired");
+const { admin } = require("../middlewares/permissionRequired");
 
 router.post("/tokens", AdminController.getToken);
 
@@ -12,7 +13,8 @@ router.use(
         algorithms: ["HS256"],
     }),
 );
-router.use(permissionRequired.admin);
+router.use(admin);
+
 router.get("/", AdminController.showList);
 router.post("/", AdminController.create);
 router.get("/:id/delete", AdminController.destroy);

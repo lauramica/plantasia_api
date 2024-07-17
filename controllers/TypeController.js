@@ -7,7 +7,7 @@ const TypeController = {
             return res.json({ types });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to show types" });
+            return res.status(400).json({ error: "Failed to show types" });
         }
     },
     show: async (req, res) => {
@@ -18,45 +18,34 @@ const TypeController = {
             return res.json({ type });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to show type" });
+            return res.status(400).json({ error: "Failed to show type" });
         }
     },
     store: async (req, res) => {
         try {
-            const { name } = req.body;
-
-            await Type.create({
-                name,
-            });
-            return res.send({ msg: "Type successfully created" });
+            await Type.create({ name: req.body.name });
+            return res.json({ msg: "Type successfully created" });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to create type" });
+            return res.status(400).json({ error: "Failed to create type" });
         }
     },
     update: async (req, res) => {
         try {
-            const { name } = req.body;
-
-            await Type.update(
-                {
-                    name,
-                },
-                { where: { id: req.params.id } },
-            );
-            return res.send({ msg: "Type successfully updated" });
+            await Type.update({ name: req.body.name }, { where: { id: req.params.id } });
+            return res.json({ msg: "Type successfully updated" });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to update type" });
+            return res.satus(400).json({ error: "Failed to update type" });
         }
     },
     destroy: async (req, res) => {
         try {
             await Type.destroy({ where: { id: req.params.id } });
-            return res.send({ msg: "Type successfully deleted" });
+            return res.json({ msg: "Type successfully deleted" });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to delete type" });
+            return res.satus(400).json({ error: "Failed to delete type" });
         }
     },
 };

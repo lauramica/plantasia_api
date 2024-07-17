@@ -1,6 +1,7 @@
 const { faker } = require("@faker-js/faker");
-const { Customer } = require("../models");
 const bcrypt = require("bcryptjs");
+
+const { Customer } = require("../models");
 
 async function customerSeeder() {
     const hashedPassword = await bcrypt.hash("1234", 12);

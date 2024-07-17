@@ -1,8 +1,9 @@
+const { expressjwt: checkJwt } = require("express-jwt");
 const express = require("express");
 const router = express.Router();
+
 const OrderController = require("../controllers/OrderController");
-const { expressjwt: checkJwt } = require("express-jwt");
-const permissionRequired = require("../middlewares/permissionRequired");
+const { admin, customer } = require("../middlewares/permissionRequired");
 
 router.use(
     checkJwt({
@@ -10,9 +11,13 @@ router.use(
         algorithms: ["HS256"],
     }),
 );
-router.get("/", permissionRequired.admin, OrderController.showList);
-router.post("/create", permissionRequired.customer, OrderController.store);
-router.post("/edit/:id", permissionRequired.admin, OrderController.update);
-router.get("/:id", permissionRequired.admin, OrderController.show);
+
+router.post("/create", customer, OrderController.store);
+
+router.use(admin);
+
+router.get("/", OrderController.showList);
+router.post("/edit/:id", OrderController.update);
+router.get("/:id", OrderController.show);
 
 module.exports = router;

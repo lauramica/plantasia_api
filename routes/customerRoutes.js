@@ -1,8 +1,9 @@
+const { expressjwt: checkJwt } = require("express-jwt");
 const express = require("express");
 const router = express.Router();
-const { expressjwt: checkJwt } = require("express-jwt");
+
 const CustomerController = require("../controllers/CustomerController");
-const permissionRequired = require("../middlewares/permissionRequired");
+const { admin, customer } = require("../middlewares/permissionRequired");
 
 router.post("/tokens", CustomerController.getToken);
 router.post("/", CustomerController.create);
@@ -14,8 +15,8 @@ router.use(
     }),
 );
 
-router.get("/", permissionRequired.admin, CustomerController.showList);
-router.post("/:id", permissionRequired.customer, CustomerController.update);
+router.get("/", admin, CustomerController.showList);
+router.post("/:id", customer, CustomerController.update);
 
 router.get("/:id/delete", CustomerController.destroy);
 router.get("/:id", CustomerController.show);

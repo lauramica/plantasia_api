@@ -20,7 +20,7 @@ class Product extends Model {
                     allowNull: false,
                 },
                 image: {
-                    type: DataTypes.TEXT("tiny"),
+                    type: DataTypes.TEXT,
                     allowNull: false,
                 },
                 stock: {

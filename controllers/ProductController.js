@@ -9,7 +9,7 @@ const { Product, Type } = require("../models");
 const ProductController = {
     showList: async (req, res) => {
         try {
-            const options = { include: Type };
+            const options = { include: Type, order: [["createdAt", "DESC"]] };
             const limit = Number(req.query.limit);
             const typeId = Number(req.query.typeId);
             const offset = req.query.page ? (Number(req.query.page) - 1) * limit : 0;
@@ -35,7 +35,7 @@ const ProductController = {
             return res.json({ product });
         } catch (err) {
             console.error(err);
-            return res.status(400).send({ msg: "Failed to show product" });
+            return res.status(400).send({ error: "Failed to show product" });
         }
     },
     store: async (req, res) => {
@@ -44,6 +44,7 @@ const ProductController = {
 
             const form = formidable({
                 keepExtensions: true,
+                multiples: true,
             });
 
             form.parse(req, async (err, fields, files) => {
@@ -62,6 +63,13 @@ const ProductController = {
                             contentType: files.image.mimetype,
                             duplex: "half",
                         });
+
+                    if (error) {
+                        console.log(error);
+                        return res
+                            .status(500)
+                            .json({ error: "There was an issue with the server" });
+                    }
 
                     await Product.create({
                         name,
@@ -87,7 +95,7 @@ const ProductController = {
         try {
             const supabase = createClient(process.env.DB_URL, process.env.DB_KEY);
 
-            const form = formidable({ keepExtensions: true });
+            const form = formidable({ keepExtensions: true, multiples: true });
 
             form.parse(req, async (err, fields, files) => {
                 try {
@@ -101,6 +109,13 @@ const ProductController = {
                         .from("images")
                         .remove([`products/${product.image}`]);
 
+                    if (removeImage.error) {
+                        console.log(removeImage.error);
+                        return res
+                            .status(500)
+                            .json({ error: "There was an issue with the server" });
+                    }
+
                     const uploadImage = await supabase.storage
                         .from("images")
                         .upload(`products/${image}`, fs.createReadStream(files.image.filepath), {
@@ -109,6 +124,13 @@ const ProductController = {
                             contentType: files.image.mimetype,
                             duplex: "half",
                         });
+
+                    if (uploadImage.error) {
+                        console.log(uploadImage.error);
+                        return res
+                            .status(500)
+                            .json({ error: "There was an issue with the server" });
+                    }
 
                     await product.update({
                         name,
@@ -134,18 +156,22 @@ const ProductController = {
     destroy: async (req, res) => {
         try {
             const supabase = createClient(process.env.DB_URL, process.env.DB_KEY);
-
             const product = await Product.findByPk(req.params.id);
 
             const { data, error } = await supabase.storage
                 .from("images")
                 .remove([`products/${product.image}`]);
 
+            if (error) {
+                console.log(error);
+                return res.status(500).json({ error: "There was an issue with the server" });
+            }
+
             await product.destroy();
             return res.send({ msg: "Product successfully deleted" });
         } catch (err) {
             console.error(err);
-            return res.status(400).send({ msg: "Failed to delete product" });
+            return res.status(400).send({ error: "Failed to delete product" });
         }
     },
 };
