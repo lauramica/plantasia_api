@@ -62,8 +62,6 @@ const CustomerController = {
                 cart: req.body.cart,
             });
 
-            if (req.body.cart.length < 1) customer.cart = [];
-
             await customer.save();
             return res.json({ msg: "Customer successfully updated" });
         } catch (err) {

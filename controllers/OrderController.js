@@ -21,7 +21,7 @@ const OrderController = {
     },
     show: async (req, res) => {
         try {
-            const order = await Order.findByPk(req.params.id);
+            const order = await Order.find(req.params.id);
             return res.json({ order });
         } catch (err) {
             console.error(err);
