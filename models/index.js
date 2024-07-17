@@ -6,9 +6,7 @@ const sequelizeOptions = {
     logging: false,
 };
 
-if (process.env.DB_CONNECTION === "postgres") {
-    sequelizeOptions.dialectModule = require("pg");
-}
+if (process.env.DB_CONNECTION === "postgres") sequelizeOptions.dialectModule = require("pg");
 
 const sequelize = new Sequelize(
     process.env.DB_NAME,

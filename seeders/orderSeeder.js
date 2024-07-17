@@ -1,12 +1,14 @@
 const { customAlphabet } = require("nanoid");
-const { Order } = require("../models");
 const { faker } = require("@faker-js/faker");
+
+const { Order } = require("../models");
 
 async function orderSeeder() {
     const orders = [];
 
     for (let i = 0; i < 3; i++) {
         const nanoid = customAlphabet("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 8);
+
         orders.push({
             total_price: 64.9,
             order_address: {

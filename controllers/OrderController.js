@@ -1,61 +1,79 @@
 const { customAlphabet } = require("nanoid");
-const { Order } = require("../models");
-const formidable = require("formidable");
+
+const { Order, Product } = require("../models");
 
 const OrderController = {
     showList: async (req, res) => {
         try {
-            const orders = await Order.findAll();
+            const options = { order: [["createdAt", "DESC"]] };
+            const limit = Number(req.query.limit);
+            const offset = req.query.page ? (Number(req.query.page) - 1) * limit : 0;
+
+            if (limit) options.limit = limit;
+            if (offset) options.offset = offset;
+
+            const orders = await Order.findAll(options);
             return res.json({ orders });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to show orders" });
+            return res.status(400).json({ error: "Failed to show orders" });
         }
     },
     show: async (req, res) => {
         try {
-            const order = await Order.findByPk(req.params.id);
+            const order = await Order.find(req.params.id);
             return res.json({ order });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to show order" });
+            return res.status(400).json({ error: "Failed to find order" });
         }
     },
     store: async (req, res) => {
         try {
             const { total_price, order_address, products, buyer, payment } = req.body;
             const nanoid = customAlphabet("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 8);
+
             const customerId = req.auth.sub;
             const order_id = nanoid();
+
+            const newProducts = [];
+            const updatedProducts = products.map(async (product) => {
+                const updatedProduct = await Product.findByPk(product.id);
+                updatedProduct.stock = updatedProduct.stock - product.quantity;
+                if (updatedProduct.stock < 0)
+                    return res.status(400).json({
+                        error: "There's not enough stock of this product",
+                        id: product.id,
+                    });
+                newProducts.push(updatedProduct);
+                updatedProduct.quantity = product.quantity;
+                return updatedProduct;
+            });
+
+            await Product.bulkCreate(newProducts, { updateOnDuplicate: ["id"] });
+
             const order = await Order.create({
                 order_id,
                 total_price,
                 order_address,
-                products,
+                products: updatedProducts,
                 buyer,
                 payment,
                 customerId,
             });
-            return res.send({ msg: "Order successfully created", id: order.id });
+            return res.json({ msg: "Order successfully created", id: order.order_id });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to create order" });
+            return res.status(400).json({ error: "Failed to create order" });
         }
     },
     update: async (req, res) => {
         try {
-            const { state } = req.body;
-
-            await Order.update(
-                {
-                    state,
-                },
-                { where: { id: req.params.id } },
-            );
-            return res.send({ msg: "Order successfully updated" });
+            await Order.update({ state: req.body.state }, { where: { id: req.params.id } });
+            return res.json({ msg: "Order successfully updated" });
         } catch (err) {
             console.error(err);
-            return res.send({ msg: "Failed to update order" });
+            return res.status(400).json({ msg: "Failed to update order" });
         }
     },
 };
