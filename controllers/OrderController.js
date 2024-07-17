@@ -36,27 +36,11 @@ const OrderController = {
             const customerId = req.auth.sub;
             const order_id = nanoid();
 
-            const newProducts = [];
-            const updatedProducts = products.map(async (product) => {
-                const updatedProduct = await Product.findByPk(product.id);
-                updatedProduct.stock = updatedProduct.stock - product.quantity;
-                if (updatedProduct.stock < 0)
-                    return res.status(400).json({
-                        error: "There's not enough stock of this product",
-                        id: product.id,
-                    });
-                newProducts.push(updatedProduct);
-                updatedProduct.quantity = product.quantity;
-                return updatedProduct;
-            });
-
-            await Product.bulkCreate(newProducts, { updateOnDuplicate: ["id"] });
-
             const order = await Order.create({
                 order_id,
                 total_price,
                 order_address,
-                products: updatedProducts,
+                products,
                 buyer,
                 payment,
                 customerId,
