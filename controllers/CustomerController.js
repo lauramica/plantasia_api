@@ -70,31 +70,35 @@ const CustomerController = {
         }
     },
     destroy: async (req, res) => {
-        try {
-            const customer = await Customer.findByPk(req.params.id);
+        if (req.params.id !== 1) {
+            try {
+                const customer = await Customer.findByPk(req.params.id);
+                const secretPassword = nanoid();
 
-            await customer.update({
-                email: `deleted_${nanoid()}@customer.com`,
-                firstname: "-",
-                lastname: "-",
-                address: {
-                    address: "-",
-                    state: "-",
-                    city: "-",
-                    country: "-",
-                    postalcode: "-",
-                },
-                phone: "-",
-                cart: [],
-                password: await bcrypt.hash("1234", 12),
-            });
+                await customer.update({
+                    email: `deleted_${nanoid()}@customer.com`,
+                    firstname: "deleted",
+                    lastname: "customer",
+                    address: {
+                        address: "-",
+                        state: "-",
+                        city: "-",
+                        country: "-",
+                        postalcode: "-",
+                    },
+                    phone: "-",
+                    cart: [],
+                    password: await bcrypt.hash(secretPassword, 12),
+                });
 
-            await Customer.destroy({ where: { id: req.params.id } });
-            return res.json({ msg: "Customer successfully deleted" });
-        } catch (err) {
-            console.error(err);
-            return res.status(400).json({ error: "There was a mistake deleting the customer" });
+                await Customer.destroy({ where: { id: req.params.id } });
+                return res.json({ msg: "Customer successfully deleted" });
+            } catch (err) {
+                console.error(err);
+                return res.status(400).json({ error: "There was a mistake deleting the customer" });
+            }
         }
+        return res.status(401).json({ error: "You cannot delete the default customer" });
     },
     getToken: async (req, res) => {
         try {

@@ -151,25 +151,28 @@ const AdminController = {
         }
     },
     destroy: async (req, res) => {
-        try {
-            const supabase = createClient(process.env.DB_URL, process.env.DB_KEY);
-            const admin = await Admin.findByPk(req.params.id);
+        if (req.params.id !== 1) {
+            try {
+                const supabase = createClient(process.env.DB_URL, process.env.DB_KEY);
+                const admin = await Admin.findByPk(req.params.id);
 
-            const { data, error } = await supabase.storage
-                .from("images")
-                .remove([`avatars/${product.image}`]);
+                const { data, error } = await supabase.storage
+                    .from("images")
+                    .remove([`avatars/${product.image}`]);
 
-            if (error) {
-                console.log(error);
-                return res.status(500).json({ error: "There was an issue with the server" });
+                if (error) {
+                    console.log(error);
+                    return res.status(500).json({ error: "There was an issue with the server" });
+                }
+
+                await admin.destroy();
+                return res.json({ msg: "Admin successfully deleted" });
+            } catch (err) {
+                console.error(err);
+                return res.status(400).json({ error: "There was a mistake deleting the admin" });
             }
-
-            await admin.destroy();
-            return res.json({ msg: "Admin successfully deleted" });
-        } catch (err) {
-            console.error(err);
-            return res.status(400).json({ error: "There was a mistake deleting the admin" });
         }
+        return res.status(401).json({ error: "You cannot delete the main admin" });
     },
     getToken: async (req, res) => {
         try {
